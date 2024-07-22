@@ -1,0 +1,16 @@
+package org.example.clinic.domain.medico;
+
+import org.example.clinic.domain.medico.DTO.RegistraMedicoDTO;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.List;
+import java.util.Optional;
+
+public interface MedicoRepository extends JpaRepository<Medico, Long> {
+    Page<Medico> findByActivoTrue(Pageable paginacion);
+
+    Optional<Medico> findByNombre(String nombre);
+    Boolean findActivoById(Long idMedico);
+}
